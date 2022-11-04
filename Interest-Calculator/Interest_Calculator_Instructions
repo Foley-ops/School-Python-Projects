@@ -1,0 +1,21 @@
+Activity #1: File read and write
+
+One of the most common ways that data can be stored to be loaded in a spreadsheet or other similar table is with a CSV (Comma Separated Value) file.  These often are given a .csv extension.  A csv file is a way of representing a table in a file.  Each line represents a row of the table, and the cells in each column are separated by commas.  CSV files can usually be read into spreadsheet programs (such as Excel), and most spreadsheets can output their data in a CSV format (sometimes called “comma delimited” format).  You are going to practice writing and reading CSV data directly.
+
+Write a program that will save, to a file, a list of amortized values for a loan.  Specifically:
+
+a.	Ask the user for the amount of the loan, the annual interest rate, and the amount being paid monthly.  Also, ask for the name of the file to write the results to.  For whatever name is given, your program should add a “.csv” extension to the name, to indicate that it is a CSV file.
+
+b.	Each month, you should calculate the amount remaining on the loan by first applying the monthly payment (reducing the loan value), then increasing the loan amount by 1/12 of the annual interest rate.
+
+c.	For each month, write to the output file the month number, the total amount of interest accrued so far, and the amount remaining on the loan, separated by commas.
+
+i.	Start with month 0, when there is no payment and no interest, with month 1 being the first payment and first interest accumulation 
+
+ii.	If the loan eventually will be paid off (i.e. if the loan amount is decreasing), write out values until the loan amount is 0
+
+iii.	If it will not be paid off (i.e. the loan amount increases or stays the same each month), then write 30 months' worth of data.
+
+d.	Be sure that you write out column headers for the table, indicating what each column is.
+
+Note: if you write your .csv file correctly, you should be able to open it in a spreadsheet program that can read .csv files.
