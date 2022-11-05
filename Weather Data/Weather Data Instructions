@@ -1,0 +1,28 @@
+These activities are meant to help give you practice reading and writing files, as well as processing larger amounts of data, which is one of the common tasks that computer programs are written for.
+
+Activity #1:
+
+On the class website is a CSV file containing weather data from Coulter Field (in Bryan) for 3 years (1 day is missing for some reason!); the data was taken from Weather Underground (wunderground.com).  There are different versions of the file for Windows and Mac; the only difference is whether the end of a line contains just a new-line character, or both a new-line and a carriage return (you don’t need to worry about the difference).  Open the file in any text browser and you should see what it is.  Note that the first line of the file contains the column headers explaining what each column is.
+
+Download the file to your system, and write a program that will read in the file and do the following:
+
+a.	Output the maximum and minimum temperature seen over the 3 year period
+
+b.	Output the average daily precipitation
+
+c.	Pick any 3 other “interesting” data analysis questions (of your choice) and output the answer to that question.  For at least one, make use of the date information.  Here are some ideas, but you can pick whatever you want:
+
+      a.	For some particular day, such as December 25, find the maximum and minimum temperatures reached among the 3 years of data.
+
+      b.	For some particular month, such as July 2015, calculate the average high temperature.
+
+      c.	Calculate how frequently the pressure increases from one day to another vs. how frequently it decreases.
+
+      d.	Calculate the percentage of days when the humidity was above some value, like 90%.
+
+      e.	Calculate the mean and standard deviation of precipitation levels.
+
+Be sure to include a descriptive sentence for what you are printing out in each case.
+
+Note that the “interesting” analysis questions you choose should be different analyses from each other; for example, you should not find the min/max temperature for just 3 different dates, or find the min/max pressure for December 25, since those are essentially the identical computation.
+
