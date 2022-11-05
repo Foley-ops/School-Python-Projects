@@ -37,7 +37,7 @@ total_cost_token = loan_token + (loan_token * actual_apr)
 
 row2 = [month_count, f'{initial_loan:.2f}',
         f'{0}', f'{0}']
-loan_file = open(f'{x}.csv', 'w')
+loan_file = open(f'{x}.csv', 'w', newline='')
 fieldnames = ('Month', 'Loan Amount', 'Interest Accrued', 'Amount Paid')
 loan_writer = csv.writer(loan_file)
 loan_writer.writerow(fieldnames)
