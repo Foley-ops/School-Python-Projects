@@ -1,5 +1,6 @@
 import random
 
+scoring_test = []
 
 def rules():
     print("*****RULES*****\n1. Two to nine players can play\n"
@@ -41,20 +42,31 @@ def game_type():
 # game_type()
 
 
-def set_player():
-    p_list = []
-    p_score = []
-    p_amount = int(input("How many people will be playing? "))
-    for i in range(p_amount):
+def player_names(x):
+    p_names = []
+    for i in range(x):
         p_name = input(f"Please enter player {i + 1} name: ")
-        p_list.append(p_name)
-        p_score.append(20)
+        p_names.append(p_name)
 
-    print('Players are: ', end=' * ')
-    [print(i, end=' * ') for i in p_list]
+    print('Players are:\n', end=' * ')
+    [print(i, end=' * ') for i in p_names]
+    print()
 
-    print(p_score)
-    return p_amount
+
+p_amount = int(input("How many people will be playing? "))
+
+# player_names(p_amount)
+
+player_score = []
+
+# creates amount of lists based on number of players
+# score is set to whatever
+for i in range(p_amount):
+    player_score.append(20)
+print(player_score)
+
+
+
 
 
 # set_player()
@@ -68,24 +80,30 @@ def roll_dice():
     return roll1, roll2, roll3
 
 
-rolls = roll_dice()
-
-
 def roll_score(roll1, roll2, roll3):
+    '''
+    Differentiates scores
+    :param roll1: First die
+    :param roll2: Second die
+    :param roll3: Third die
+    :return: score
+    '''
     turn_score = 0
-    if (roll1 == 4 or roll1 == 5 or roll1 == 6) and (roll2 == 4 or roll2 == 5 or roll2 == 6) and (roll3 == 4 or roll3 == 5 or roll3 == 6) and roll1 != roll2 and roll2 != roll3 and roll1 != roll3:
-            print('Zanzibar!')
-            turn_score += 1000
+    if (roll1 == 4 or roll1 == 5 or roll1 == 6) and (roll2 == 4 or roll2 == 5 or roll2 == 6) and \
+            (roll3 == 4 or roll3 == 5 or roll3 == 6) and roll1 != roll2 and roll2 != roll3 and roll1 != roll3:
+        print('Zanzibar!')
+        turn_score += 1000
 
     elif roll1 == roll2 == roll3:
         print('Three of a kind!')
         turn_score += 800
 
-    elif (roll1 == 1 or roll1 == 2 or roll1 == 3) and (roll2 == 1 or roll2 == 2 or roll2 == 3) and (roll3 == 1 or roll3 == 2 or roll3 == 3) and roll1 != roll2 and roll2 != roll3 and roll1 != roll3:
+    elif (roll1 == 1 or roll1 == 2 or roll1 == 3) and (roll2 == 1 or roll2 == 2 or roll2 == 3) and \
+            (roll3 == 1 or roll3 == 2 or roll3 == 3) and roll1 != roll2 and roll2 != roll3 and roll1 != roll3:
         print('123!')
         turn_score += 500
 
-    if turn_score <= 500:
+    if turn_score <= 0:
 
         if roll1 == 1:
             turn_score += 100
@@ -150,11 +168,21 @@ def roll_score(roll1, roll2, roll3):
     elif 500 <= turn_score < 800:
         print('123')
 
-    if turn_score != 0:
-        print(turn_score)
     return turn_score
 
 
-second = roll_score(*rolls)
+# second = roll_score(4, 4, 4)
+print(len(range(p_amount)))
 
-print(second)
+for i in range(p_amount):
+
+    rolls = roll_dice()
+    points = (roll_score(*rolls))
+
+    scoring_test.append(points)
+
+print(points)
+print(scoring_test)
+
+    # if points != min(scoring_test):
+    #     print("yellow")
