@@ -1,6 +1,8 @@
+from turtle import *
 import random
 
 scoring_test = []
+
 
 def rules():
     print("*****RULES*****\n1. Two to nine players can play\n"
@@ -21,7 +23,7 @@ def game_type():
                           "Type the indicated number for the desired option: "))
 
     if more_info == 0:
-        pass # goto standard game
+        pass  # goto standard game
     elif more_info == 1:
         print("B")
     elif more_info == 2:
@@ -40,6 +42,616 @@ def game_type():
     # quest = input("What game type do you want to play?")
 
 # game_type()
+
+
+def player_text(num):
+    penup()
+    setposition(0, -210)
+
+    color('black')
+    pendown()
+    write(f"Player {num}", move=False, align="center",
+          font=("Cooper Black", 50, "italic"))
+
+    penup()
+
+
+def player_text_replace(num):
+    penup()
+    setposition(0, -210)
+
+    color('green')
+    pendown()
+    write(f"Player {num}", move=False, align="center",
+          font=("Cooper Black", 50, "italic"))
+
+    penup()
+
+
+def die_d0():
+    # ####### Bottom Right Dice ######
+    penup()
+    setposition(100, -100)
+    begin_fill()
+    color('black', 'white')
+    for _ in range(2):
+        forward(200)
+        left(90)
+        forward(200)
+        left(90)
+    end_fill()
+
+
+def die_d1():
+    # ####### Bottom left dice #####
+    t1.penup()
+    t1.setposition(-300, -100)
+    t1.begin_fill()
+    t1.color('black', 'white')
+    for _ in range(2):
+        t1.forward(200)
+        t1.left(90)
+        t1.forward(200)
+        t1.left(90)
+    t1.end_fill()
+
+
+def die_d2():
+
+    # ###### Top Center dice ######
+    t2.penup()
+    t2.setposition(-100, 150)
+    t2.begin_fill()
+    t2.color('black', 'white')
+    for _ in range(2):
+        t2.forward(200)
+        t2.left(90)
+        t2.forward(200)
+        t2.left(90)
+    t2.end_fill()
+
+
+# #### Top center dice sides #####
+def d2_one():
+    t2.penup()
+    t2.setposition(0, 220)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+
+def d2_two():
+    t2.penup()
+    t2.setposition(47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+
+def d2_three():
+    t2.penup()
+    t2.setposition(0, 220)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+
+def d2_four():
+    t2.penup()
+    t2.setposition(47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+
+def d2_five():
+    t2.penup()
+    t2.setposition(0, 220)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(25)
+    t2.end_fill()
+
+
+def d2_six():
+    t2.penup()
+    t2.setposition(47, 220)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 220)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(47, 170)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+    t2.penup()
+    t2.setposition(-47, 270)
+    t2.begin_fill()
+    t2.color('black', 'black')
+    t2.pendown()
+    t2.circle(20)
+    t2.end_fill()
+
+
+# #### Bottom left dice sides #####
+def d1_one():
+    t1.penup()
+    t1.setposition(-198, -25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+
+def d1_two():
+    t1.penup()
+    t1.setposition(-245, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+
+def d1_three():
+    t1.penup()
+    t1.setposition(-198, -25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+
+def d1_four():
+    t1.penup()
+    t1.setposition(-245, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+
+def d1_five():
+    t1.penup()
+    t1.setposition(-198, -25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(25)
+    t1.end_fill()
+
+
+def d1_six():
+    t1.penup()
+    t1.setposition(-245, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, 25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, -75)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-245, -25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+    t1.penup()
+    t1.setposition(-150, -25)
+    t1.begin_fill()
+    t1.color('black', 'black')
+    t1.pendown()
+    t1.circle(20)
+    t1.end_fill()
+
+
+# ###### Bottom right dice sides #####
+def d0_five():
+    penup()
+    setposition(150, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(150, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(200, -25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+
+def d0_one():
+    penup()
+    setposition(200, -25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+
+def d0_two():
+    penup()
+    setposition(150, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+
+def d0_six():
+    penup()
+    setposition(150, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+    penup()
+    setposition(150, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+    penup()
+    setposition(150, -25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+    penup()
+    setposition(250, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+    penup()
+    setposition(250, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+    penup()
+    setposition(250, -25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(20)
+    end_fill()
+
+
+def d0_three():
+    penup()
+    setposition(150, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(200, -25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+
+def d0_four():
+    penup()
+    setposition(150, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(150, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, -75)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
+
+    penup()
+    setposition(250, 25)
+    begin_fill()
+    color('black', 'black')
+    pendown()
+    circle(25)
+    end_fill()
 
 
 def player_names(x):
@@ -64,9 +676,6 @@ player_score = []
 for i in range(p_amount):
     player_score.append(20)
 print(player_score)
-
-
-
 
 
 # set_player()
@@ -172,17 +781,86 @@ def roll_score(roll1, roll2, roll3):
 
 
 # second = roll_score(4, 4, 4)
-print(len(range(p_amount)))
+getscreen().bgcolor('green')
+
+t1 = Turtle()
+t2 = Turtle()
+
+speed(15)
+t1.speed(15)
+t2.speed(15)
+
+hideturtle()
+t1.hideturtle()
+t2.hideturtle()
+
 
 for i in range(p_amount):
+
+    roll_tuple = roll_dice()
+    roll1 = roll_tuple[0]
+    roll2 = roll_tuple[1]
+    roll3 = roll_tuple[2]
 
     rolls = roll_dice()
     points = (roll_score(*rolls))
 
     scoring_test.append(points)
 
-print(points)
+    player_text(i + 1)
+
+    die_d1()
+    if roll1 == 1:
+        d1_one()
+    elif roll1 == 2:
+        d1_two()
+    elif roll1 == 3:
+        d1_three()
+    elif roll1 == 4:
+        d1_four()
+    elif roll1 == 5:
+        d1_five()
+    elif roll1 == 6:
+        d1_six()
+
+    die_d2()
+    if roll2 == 1:
+        d2_one()
+    elif roll2 == 2:
+        d2_two()
+    elif roll2 == 3:
+        d2_three()
+    elif roll2 == 4:
+        d2_four()
+    elif roll2 == 5:
+        d2_five()
+    elif roll2 == 6:
+        d2_six()
+
+    die_d0()
+    if roll3 == 1:
+        d0_one()
+    elif roll3 == 2:
+        d0_two()
+    elif roll3 == 3:
+        d0_three()
+    elif roll3 == 4:
+        d0_four()
+    elif roll3 == 5:
+        d0_five()
+    elif roll3 == 6:
+        d0_six()
+
+    if i + 1 != p_amount:
+        player_text_replace(i + 1)
+
+    print(points)
+
 print(scoring_test)
 
-    # if points != min(scoring_test):
-    #     print("yellow")
+# if points != min(scoring_test):
+#     print("yellow")
+
+
+exitonclick()
+
