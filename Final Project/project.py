@@ -1,8 +1,6 @@
 from turtle import *
 import random
 
-scoring_test = []
-
 
 def rules():
     print("*****RULES*****\n1. Two to nine players can play\n"
@@ -48,10 +46,10 @@ def player_text(num):
     penup()
     setposition(0, -210)
 
-    color('black')
+    color('black', 'green')
     pendown()
     write(f"Player {num}", move=False, align="center",
-          font=("Cooper Black", 50, "italic"))
+          font=("Cooper Black", 50, "normal"))
 
     penup()
 
@@ -63,9 +61,49 @@ def player_text_replace(num):
     color('green')
     pendown()
     write(f"Player {num}", move=False, align="center",
-          font=("Cooper Black", 50, "italic"))
+          font=("Cooper Black", 50, "normal"))
 
     penup()
+
+
+def turn_text(number_of_turns):
+    penup()
+    setposition(0, -300)
+
+    color('black', 'green')
+    pendown()
+    write(f"Turn {number_of_turns}", move=False, align="center",
+          font=("Cooper Black", 50, "normal"))
+
+
+def turn_deleter(number_of_turns):
+    penup()
+    setposition(0, -300)
+
+    color('green')
+    pendown()
+    write(f"Turn {number_of_turns}", move=False, align="center",
+          font=("Cooper Black", 50, "normal"))
+
+
+def winner_text(player_number):
+
+
+    penup()
+    setposition(0, 0)
+
+    color('black', 'gold')
+    pendown()
+    write(f"Congratulations {player_number}", move=False, align="center",
+          font=("Cooper Black", 50, "normal"))
+    penup()
+    setposition(0, -20)
+
+    color('black', 'gold')
+    pendown()
+    write(f"You Win!", move=False, align="center",
+          font=("Cooper Black", 50, "normal"))
+
 
 
 def die_d0():
@@ -664,20 +702,6 @@ def player_names(x):
     [print(i, end=' * ') for i in p_names]
     print()
 
-
-p_amount = int(input("How many people will be playing? "))
-
-# player_names(p_amount)
-
-player_score = []
-
-# creates amount of lists based on number of players
-# score is set to whatever
-for i in range(p_amount):
-    player_score.append(20)
-print(player_score)
-
-
 # set_player()
 
 
@@ -692,9 +716,9 @@ def roll_dice():
 def roll_score(roll1, roll2, roll3):
     '''
     Differentiates scores
-    :param roll1: First die
-    :param roll2: Second die
-    :param roll3: Third die
+    :param roll1: First die roll
+    :param roll2: Second die roll
+    :param roll3: Third die roll
     :return: score
     '''
     turn_score = 0
@@ -767,18 +791,29 @@ def roll_score(roll1, roll2, roll3):
 
         if roll3 == 5:
             turn_score += 5
-
-    if turn_score >= 1000:
-        print('Zanzibar')
-
-    elif 800 <= turn_score < 1000:
-        print('Three of a kind!')
-
-    elif 500 <= turn_score < 800:
-        print('123')
+    #
+    # if turn_score >= 1000:
+    #     print('Zanzibar')
+    #
+    # elif 800 <= turn_score < 1000:
+    #     print('Three of a kind!')
+    #
+    # elif 500 <= turn_score < 800:
+    #     print('123')
 
     return turn_score
 
+
+player_score = []
+
+p_amount = int(input("How many people will be playing? "))
+
+# player_names(p_amount)
+
+# sets score
+for i in range(p_amount):
+    player_score.append(5)
+print(player_score)
 
 # second = roll_score(4, 4, 4)
 getscreen().bgcolor('green')
@@ -786,81 +821,145 @@ getscreen().bgcolor('green')
 t1 = Turtle()
 t2 = Turtle()
 
-speed(15)
-t1.speed(15)
-t2.speed(15)
+speed(0)
+t1.speed(0)
+t2.speed(0)
 
 hideturtle()
 t1.hideturtle()
 t2.hideturtle()
 
+scoring_test = []
+turn_counter = 0
 
-for i in range(p_amount):
 
-    roll_tuple = roll_dice()
-    roll1 = roll_tuple[0]
-    roll2 = roll_tuple[1]
-    roll3 = roll_tuple[2]
+while min(player_score) >= 0:
+    turn_counter += 1
+    turn_text(turn_counter)
 
-    rolls = roll_dice()
-    points = (roll_score(*rolls))
+    for i in range(p_amount):
 
-    scoring_test.append(points)
+        rolls = roll_dice()
+        roll1 = rolls[0]
+        roll2 = rolls[1]
+        roll3 = rolls[2]
 
-    player_text(i + 1)
+        points = (roll_score(*rolls))
 
-    die_d1()
-    if roll1 == 1:
-        d1_one()
-    elif roll1 == 2:
-        d1_two()
-    elif roll1 == 3:
-        d1_three()
-    elif roll1 == 4:
-        d1_four()
-    elif roll1 == 5:
-        d1_five()
-    elif roll1 == 6:
-        d1_six()
+        scoring_test.append(points)
 
-    die_d2()
-    if roll2 == 1:
-        d2_one()
-    elif roll2 == 2:
-        d2_two()
-    elif roll2 == 3:
-        d2_three()
-    elif roll2 == 4:
-        d2_four()
-    elif roll2 == 5:
-        d2_five()
-    elif roll2 == 6:
-        d2_six()
+        player_text(i + 1)
 
-    die_d0()
-    if roll3 == 1:
-        d0_one()
-    elif roll3 == 2:
-        d0_two()
-    elif roll3 == 3:
-        d0_three()
-    elif roll3 == 4:
-        d0_four()
-    elif roll3 == 5:
-        d0_five()
-    elif roll3 == 6:
-        d0_six()
+        die_d1()
+        if roll1 == 1:
+            d1_one()
+        elif roll1 == 2:
+            d1_two()
+        elif roll1 == 3:
+            d1_three()
+        elif roll1 == 4:
+            d1_four()
+        elif roll1 == 5:
+            d1_five()
+        elif roll1 == 6:
+            d1_six()
 
-    if i + 1 != p_amount:
-        player_text_replace(i + 1)
+        die_d2()
+        if roll2 == 1:
+            d2_one()
+        elif roll2 == 2:
+            d2_two()
+        elif roll2 == 3:
+            d2_three()
+        elif roll2 == 4:
+            d2_four()
+        elif roll2 == 5:
+            d2_five()
+        elif roll2 == 6:
+            d2_six()
 
-    print(points)
+        die_d0()
+        if roll3 == 1:
+            d0_one()
+        elif roll3 == 2:
+            d0_two()
+        elif roll3 == 3:
+            d0_three()
+        elif roll3 == 4:
+            d0_four()
+        elif roll3 == 5:
+            d0_five()
+        elif roll3 == 6:
+            d0_six()
 
-print(scoring_test)
+        if i != p_amount:
+            player_text_replace(i + 1)
 
-# if points != min(scoring_test):
-#     print("yellow")
+
+
+        print(points)
+
+    turn_deleter(turn_counter)
+
+    print(scoring_test)
+
+    # if points != min(scoring_test):
+    #     print("yellow")
+
+    loser = min(scoring_test)
+    winner = max(scoring_test)
+
+    if winner == 1000:
+        loser_position = scoring_test.index(loser)
+        player_score[loser_position] += (4 * (p_amount - 1))
+        for player in range(len(player_score)):
+            if player != loser_position:
+                player_score[player] -= 4
+            elif player == loser_position:
+                pass
+
+    elif winner == 800:
+        loser_position = scoring_test.index(loser)
+        player_score[loser_position] += (3 * (p_amount - 1))
+        for player in range(len(player_score)):
+            if player != loser_position:
+                player_score[player] -= 3
+            elif player == loser_position:
+                pass
+
+
+    elif winner == 500:
+        loser_position = scoring_test.index(loser)
+        player_score[loser_position] += (2 * (p_amount - 1))
+        for player in range(len(player_score)):
+            if player != loser_position:
+                player_score[player] -= 2
+            elif player == loser_position:
+                pass
+
+    else:
+        loser_position = scoring_test.index(loser)
+        player_score[loser_position] += (p_amount - 1)
+        for player in range(len(player_score)):
+            if player != loser_position:
+                player_score[player] -= 1
+            elif player == loser_position:
+                pass
+
+    print(f'Round Loser: {loser}')
+    print(f'Round Winner: {winner}')
+    print(f'Current Score: {player_score}')
+
+    scoring_test = []
+
+# game_winner = min(player_score)
+# 
+# winner_position = player_score.index(game_winner)
+# 
+# winner_text(winner_position)
+
 
 
 exitonclick()
+
 
